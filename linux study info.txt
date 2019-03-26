@@ -1,7 +1,0 @@
-linux 确认发行版
-
-uname -a
-
-cat /etc/os-release
-
-cat /proc/version
