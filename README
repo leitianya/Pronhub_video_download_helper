@@ -1,0 +1,21 @@
+This is a helper for youtube-dl
+
+u.txt is a URL list file
+d.sh is a Scripts
+
+for use:
+
+1.put download link to u.txt
+
+2.run d.sh
+
+other:
+
+1.The d.sh can move downloaded file to special directory
+  you can change it
+
+2.use nohup command to best
+
+youtube-dl
+https://ytdl-org.github.io/youtube-dl/index.html
+
