@@ -3,11 +3,20 @@
 vurllist="u.txt"
 vdownapp="youtube-dl"
 vproxy="socks5://192.168.1.38:7070/"
-vdownall=${vdownapp}" --proxy "${vproxy}
-vlocaldir="/root"
-vdescdir="/mnt/mator/Mounted_NAS_18.223_DownLoad/PH/"
+#vdownall=${vdownapp}" --proxy "${vproxy}
+vdownall=${vdownapp}
+vgitdir=/root/Pronhub_video_download_helper
+vlocaldir="/usr/local/down"
+#vftpput="ncftpput -u mator -p artlover mator.f3322.net /ftp"
+#vdescdir="/mnt/mator/Mounted_NAS_18.223_DownLoad/PH/"
+
+cd $vgitdir
+git pull
+rm -rf $vlocaldir/u.txt
+cp -f $vgitdir/u.txt $vlocaldir/u.txt
 
 cd $vlocaldir
+rm -rf list.txt
 $vdownall -U
 
 vlieshu=$(cat $vurllist|wc -l)
@@ -28,9 +37,17 @@ do
 		else
 			echo "["${i}"/"${vlieshu}"] OK."
 			ls *"$vstrend".mp4 | xargs -I {} echo {}" Video Dwonload Done."
-			ls *"$vstrend".mp4 | xargs -I {} mv -f "${vlocaldir}/{}" $vdescdir
-			echo "Video Moved to "$vdescdir
+			ls *"$vstrend".mp4 | xargs -I {} mv {} "$vstrend".mp4
+			echo "http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/"$vstrend".mp4">>list.txt
+			#ls *"$vstrend".mp4 | xargs -I {} $vftpput "${vlocaldir}/{}"
+			#echo "Video Moved to "$vdescdir
 			break
 		fi
 	done
 done
+rm -rf $vlocaldir/list.txt
+cp -f $vlocaldir/list.txt $vgitdir
+cd $vgitdir
+git add list.txt
+git commit -m "new"
+git push  origin master
