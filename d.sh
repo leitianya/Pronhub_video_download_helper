@@ -17,6 +17,7 @@ cp -f $vgitdir/u.txt $vlocaldir/u.txt
 
 cd $vlocaldir
 rm -rf list.txt
+touch list.txt
 $vdownall -U
 
 vlieshu=$(cat $vurllist|wc -l)
@@ -45,8 +46,10 @@ do
 		fi
 	done
 done
-rm -rf $vlocaldir/list.txt
+
+rm -rf $vgitdir/list.txt
 cp -f $vlocaldir/list.txt $vgitdir
+
 cd $vgitdir
 git add list.txt
 git commit -m "new"
