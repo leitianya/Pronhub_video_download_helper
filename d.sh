@@ -7,7 +7,7 @@ vproxy="socks5://192.168.1.38:7070/"
 vdownall=${vdownapp}
 vgitdir=/root/Pronhub_video_download_helper
 vlocaldir="/usr/local/down"
-#vftpput="ncftpput -u mator -p artlover mator.f3322.net /ftp"
+#vftpput="ncftpput -u mator -p ****** mator.f3322.net /ftp"
 #vdescdir="/mnt/mator/Mounted_NAS_18.223_DownLoad/PH/"
 
 cd $vgitdir
