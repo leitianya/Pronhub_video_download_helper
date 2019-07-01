@@ -11,14 +11,14 @@ vhttpdir="http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/"
 #vftpput="ncftpput -u mator -p ****** mator.f3322.net /ftp"
 #vdescdir="/mnt/mator/Mounted_NAS_18.223_DownLoad/PH/"
 
+cd $vgitdir
+git pull
+
 rm -rf $vlocaldir/u.txt
 cp -f $vgitdir/u.txt $vlocaldir/u.txt
 
 rm -rf $vlocaldir/list.txt
 touch $vlocaldir/list.txt
-
-cd $vgitdir
-git pull
 
 cd $vlocaldir
 $vdownall -U
