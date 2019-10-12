@@ -1,16 +1,2 @@
 http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph5c44a4722267e.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph5d803630aaab9.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph58dae7d3a369d.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph5d43c726efba2.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph5d661fae1c27e.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph5d7d0efb1551c.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph5d6e2bd6a517a.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph5d8b140711232.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph5c6a4835dd128.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph5cbdae4ccc90a.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph58d8b138aac6e.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph599ba9b2bd3a4.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph5ca4d6a1dc5cf.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph5d5591bca3bf6.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph5900661c67f91.mp4
-http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/ph5d38e16aa0313.mp4
+http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/.mp4
