@@ -50,7 +50,11 @@ done
 rm -rf $vgitdir/list.txt
 cp -f $vlocaldir/list.txt $vgitdir
 
+rm -rf $vgitdir/u.txt
+touch $vgitdir/u.txt
+
 cd $vgitdir
 git add list.txt
+git add u.txt
 git commit -m "new"
 git push  origin master
