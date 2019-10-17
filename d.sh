@@ -26,6 +26,8 @@ touch $logfile
 date >> $logfile 2>&1
 echo "Script Start!" >> $logfile 2>&1
 
+df -m / >> $logfile 2>&1
+
 cd $vgitdir
 git pull >> $logfile 2>&1
 
@@ -73,6 +75,8 @@ git add list.txt
 git add u.txt
 git commit -m "new" >> $logfile 2>&1
 git push  origin master >> $logfile 2>&1
+
+df -m / >> $logfile 2>&1
 
 date >> $logfile 2>&1
 echo "Script Stop!" >> $logfile 2>&1
