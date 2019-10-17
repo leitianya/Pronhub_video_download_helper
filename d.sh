@@ -43,7 +43,7 @@ for ((i=1; i<=$vlieshu; i++))
 do
 	for ((ii=1; ii<=3; ii++))
 	do
-		sed -n "$i"p $vurllist | xargs $vdownall
+		sed -n "$i"p $vurllist | xargs $vdownall >> $logfile 2>&1
 		vstrend=$(sed -n "$i"p $vurllist)
 		vstrend=$(echo ${vstrend:47})
 		ls *"$vstrend".mp4>/dev/null
@@ -76,3 +76,7 @@ git push  origin master >> $logfile 2>&1
 
 date >> $logfile 2>&1
 echo "Script Stop!" >> $logfile 2>&1
+
+rm -rf $vlocaldir/list.txt
+rm -rf $vlocaldir/u.txt
+rm -rf $vlocaldir/d.sh
