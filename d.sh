@@ -13,7 +13,7 @@ vgitdir=/root/Pronhub_video_download_helper
 vlocaldir="/usr/local/down"
 vhttpdir="http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/"
 cur_dateTime=`date +%F | sed 's/-//g'``date +%T | sed 's/://g'`
-logfile=$vlocaldir+"/"+$cur_dateTime+"".log"
+logfile=$vlocaldir/$cur_dateTime.log
 #vftpput="ncftpput -u mator -p ****** mator.f3322.net /ftp"
 #vdescdir="/mnt/mator/Mounted_NAS_18.223_DownLoad/PH/"
 
@@ -27,7 +27,7 @@ date>>$logfile
 echo "Script Start!">>$logfile
 
 cd $vgitdir
-git pull>>$logfile
+git pull>>%logfile
 
 rm -rf $vlocaldir/u.txt
 cp -f $vgitdir/u.txt $vlocaldir/u.txt
@@ -48,10 +48,10 @@ do
 		vstrend=$(echo ${vstrend:47})
 		ls *"$vstrend".mp4>/dev/null
 		if [ $? -ne 0 ]; then
-			echo Dwonload fail ,Retyr Mission !
+			echo "Dwonload fail ,Retyr Mission !">>$logfile
 			ping localhost -c 10 > /dev/null
 		else
-			echo "["${i}"/"${vlieshu}"] OK."
+			echo "["${i}"/"${vlieshu}"] OK.">>$logfile
 			ls *"$vstrend".mp4 | xargs -I {} echo {}" Video Dwonload Done."
 			ls *"$vstrend".mp4 | xargs -I {} mv {} "$vstrend".mp4
 			echo $vhttpdir$vstrend".mp4">>list.txt
@@ -72,7 +72,7 @@ cd $vgitdir
 git add list.txt
 git add u.txt
 git commit -m "new"
-git push  origin master>>>>$logfile
+git push  origin master>>$logfile
 
 date>>$logfile
 echo "Script Stop!">>$logfile
