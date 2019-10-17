@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if pgrep youtube-dl;then
-	exit
-fi
-
 vurllist="u.txt"
 vdownapp="youtube-dl"
 vproxy="socks5://192.168.1.38:7070/"
@@ -17,13 +13,14 @@ logfile=$vlocaldir/$cur_dateTime.log
 #vftpput="ncftpput -u mator -p ****** mator.f3322.net /ftp"
 #vdescdir="/mnt/mator/Mounted_NAS_18.223_DownLoad/PH/"
 
+touch $logfile
+date >> $logfile 2>&1
+
 if test $( pgrep -f $vdownapp | wc -l ) -ne 0;then
-        echo "youtobe-dl is running... exit."
+        echo "youtobe-dl is running... exit." >> $logfile 2>&1
         exit
 fi
 
-touch $logfile
-date >> $logfile 2>&1
 echo "Script Start!" >> $logfile 2>&1
 
 df -m / >> $logfile 2>&1
