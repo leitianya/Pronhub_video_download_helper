@@ -18,6 +18,8 @@ date >> $logfile 2>&1
 
 if test $( pgrep -f $vdownapp | wc -l ) -ne 0;then
         echo "youtobe-dl is running... exit." >> $logfile 2>&1
+		date >> $logfile 2>&1
+		echo "Script Stop!" >> $logfile 2>&1	
         exit
 fi
 
