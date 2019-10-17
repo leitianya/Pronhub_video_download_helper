@@ -81,6 +81,6 @@ df -m / >> $logfile 2>&1
 date >> $logfile 2>&1
 echo "Script Stop!" >> $logfile 2>&1
 
-rm -rf $vlocaldir/list.txt
+#rm -rf $vlocaldir/list.txt
 rm -rf $vlocaldir/u.txt
 rm -rf $vlocaldir/d.sh
