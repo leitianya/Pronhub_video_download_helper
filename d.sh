@@ -36,7 +36,7 @@ rm -rf $vlocaldir/list.txt
 touch $vlocaldir/list.txt
 
 cd $vlocaldir
-$vdownall -U
+$vdownall -U >> $logfile 2>&1
 
 vlieshu=$(cat $vurllist|wc -l)
 for ((i=1; i<=$vlieshu; i++))
@@ -71,7 +71,7 @@ touch $vgitdir/u.txt
 cd $vgitdir
 git add list.txt
 git add u.txt
-git commit -m "new"
+git commit -m "new" >> $logfile 2>&1
 git push  origin master >> $logfile 2>&1
 
 date >> $logfile 2>&1
