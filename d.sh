@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if pgrep youtube-dl;then
+	exit
+fi
+
 vurllist="u.txt"
 vdownapp="youtube-dl"
 vproxy="socks5://192.168.1.38:7070/"
@@ -8,11 +12,22 @@ vdownall=${vdownapp}
 vgitdir=/root/Pronhub_video_download_helper
 vlocaldir="/usr/local/down"
 vhttpdir="http://ec2-52-15-111-187.us-east-2.compute.amazonaws.com:3000/"
+cur_dateTime=`date +%F | sed 's/-//g'``date +%T | sed 's/://g'`
+logfile=$vlocaldir+"/"+$cur_dateTime+"".log"
 #vftpput="ncftpput -u mator -p ****** mator.f3322.net /ftp"
 #vdescdir="/mnt/mator/Mounted_NAS_18.223_DownLoad/PH/"
 
+if test $( pgrep -f $vdownapp | wc -l ) -ne 0;then
+        echo "youtobe-dl is running... exit."
+        exit
+fi
+
+touch $logfile
+date>>$logfile
+echo "Script Start!">>$logfile
+
 cd $vgitdir
-git pull
+git pull>>$logfile
 
 rm -rf $vlocaldir/u.txt
 cp -f $vgitdir/u.txt $vlocaldir/u.txt
@@ -57,4 +72,7 @@ cd $vgitdir
 git add list.txt
 git add u.txt
 git commit -m "new"
-git push  origin master
+git push  origin master>>>>$logfile
+
+date>>$logfile
+echo "Script Stop!">>$logfile
