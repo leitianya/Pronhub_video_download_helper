@@ -23,11 +23,11 @@ if test $( pgrep -f $vdownapp | wc -l ) -ne 0;then
 fi
 
 touch $logfile
-date>>$logfile
-echo "Script Start!">>$logfile
+date >> $logfile 2>&1
+echo "Script Start!" >> $logfile 2>&1
 
 cd $vgitdir
-git pull>>%logfile
+git pull >> $logfile 2>&1
 
 rm -rf $vlocaldir/u.txt
 cp -f $vgitdir/u.txt $vlocaldir/u.txt
@@ -48,10 +48,10 @@ do
 		vstrend=$(echo ${vstrend:47})
 		ls *"$vstrend".mp4>/dev/null
 		if [ $? -ne 0 ]; then
-			echo "Dwonload fail ,Retyr Mission !">>$logfile
+			echo "Dwonload fail ,Retyr Mission !" >> $logfile 2>&1
 			ping localhost -c 10 > /dev/null
 		else
-			echo "["${i}"/"${vlieshu}"] OK.">>$logfile
+			echo "["${i}"/"${vlieshu}"] OK.">> $logfile 2>&1
 			ls *"$vstrend".mp4 | xargs -I {} echo {}" Video Dwonload Done."
 			ls *"$vstrend".mp4 | xargs -I {} mv {} "$vstrend".mp4
 			echo $vhttpdir$vstrend".mp4">>list.txt
@@ -72,7 +72,7 @@ cd $vgitdir
 git add list.txt
 git add u.txt
 git commit -m "new"
-git push  origin master>>$logfile
+git push  origin master >> $logfile 2>&1
 
-date>>$logfile
-echo "Script Stop!">>$logfile
+date >> $logfile 2>&1
+echo "Script Stop!" >> $logfile 2>&1
