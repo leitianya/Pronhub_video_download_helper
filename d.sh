@@ -44,7 +44,8 @@ for ((i=1; i<=$vlieshu; i++))
 do
 	for ((ii=1; ii<=3; ii++))
 	do
-		sed -n "$i"p $vurllist | xargs $vdownall >> $logfile 2>&1
+		#sed -n "$i"p $vurllist | xargs $vdownall >> $logfile 2>&1
+		sed -n "$i"p $vurllist | xargs $vdownall
 		vstrend=$(sed -n "$i"p $vurllist)
 		vstrend=$(echo ${vstrend:47})
 		ls *"$vstrend".mp4>/dev/null
@@ -53,9 +54,9 @@ do
 			ping localhost -c 10 > /dev/null
 		else
 			echo "["${i}"/"${vlieshu}"] OK.">> $logfile 2>&1
-			ls *"$vstrend".mp4 | xargs -I {} echo {}" Video Dwonload Done."
+			ls *"$vstrend".mp4 | xargs -I {} echo {}" Video Dwonload Done." >> $logfile 2>&1
 			ls *"$vstrend".mp4 | xargs -I {} mv {} "$vstrend".mp4
-			echo $vhttpdir$vstrend".mp4">>list.txt
+			#echo $vhttpdir$vstrend".mp4">>list.txt
 			#ls *"$vstrend".mp4 | xargs -I {} $vftpput "${vlocaldir}/{}"
 			#echo "Video Moved to "$vdescdir
 			break
@@ -63,11 +64,12 @@ do
 	done
 done
 
-rm -rf $vgitdir/list.txt
-cp -f $vlocaldir/list.txt $vgitdir
+ls $vlocaldir/*.mp4|sed "s#$vlocaldir#vhttpdir#">>$vgitdir/list.txt
 
-rm -rf $vgitdir/u.txt
-touch $vgitdir/u.txt
+#rm -rf $vgitdir/u.txt
+echo ".">$vgitdir/u.txt
+
+#ls $vlocaldir/*.mp4|sed "s#$vlocaldir#vhttpdir#">>$vgitdir/list.txt
 
 cd $vgitdir
 git add list.txt
